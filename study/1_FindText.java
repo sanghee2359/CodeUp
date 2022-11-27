@@ -1,4 +1,4 @@
-// 리팩토링 : 함수 생성
+// 리팩토링 : 중복 되는 코드 수정
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,18 +8,14 @@ public class FindText {
         // 문자 c와 비교해서 겹치는 수를 담는 변수
         int count = 0;
 
-        // 입력받은 문자 c가 소문자일 경우
-        if(Character.isLowerCase(c)) {
-            // 문자열을 소문자로 변환 후 char[] 으로 만든다.
-            // for문으로 뿌리기
-            for(char x : str.toLowerCase().toCharArray()) {
-                // 소문자 x와 소문자 c가 일치하면 개수 추가
-                if(x == c) count++;
-            }
-        } else { // 대문자일 경우
-            for(char x : str.toUpperCase().toCharArray())
-                // 대문자 x와 대문자 c가 일치하면 개수 추가
-                if(x == c) count++;
+        // 문자열과 비교할 문자를 대문자로 미리 변환
+        c = Character.toUpperCase(c);
+        str = str.toUpperCase();
+
+        // 비교
+        for(char x : str.toCharArray()) {
+            // 소문자 x와 소문자 c가 일치하면 개수 추가
+            if(x == c) count++;
         }
         return count;
     }
@@ -32,7 +28,6 @@ public class FindText {
         String st = br.readLine();
         char c = br.readLine().charAt(0);
 
-        // 함수 호출
         System.out.println(T.findText(c, st));
     }
 }
