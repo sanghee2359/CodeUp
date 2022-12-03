@@ -4,23 +4,12 @@ import java.util.Scanner;
 
 public class PalindromeString {
     public String isiPalindrome(String str) {
-        String answer="";
+        String answer="YES";
         str = str.toUpperCase(); // 대문자로 모두 변경
-        int lt = 0, rt = str.length()-1; // 이분 탐색으로 풀이
-        int count=0;
-        while(lt < rt){
-            if(str.charAt(lt) == str.charAt(rt)){
-                System.out.printf("lt:%c",str.charAt(lt));
-                System.out.printf(" rt:%c\n",str.charAt(rt));
-                count++;
-            }
-            lt++;
-            rt--;
+        int len = str.length();
+        for (int i = 0; i < len/2; i++) { // 홀수건 짝수건 str의 절반길이만큼만 반복실행한다.
+            if(str.charAt(i) != str.charAt(len-i-1)) answer = "NO";
         }
-        System.out.println(count);
-        if(count == str.length()/2) answer = "YES";
-        else answer="NO";
-
         return answer;
     }
     public static void main(String[] args) {
