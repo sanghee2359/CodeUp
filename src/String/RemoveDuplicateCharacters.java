@@ -9,16 +9,11 @@ import java.util.Scanner;
 public class RemoveDuplicateCharacters {
     public String solution(String str){
         String answer = "";
-        StringBuilder sb = new StringBuilder();
-
         for (int i = 0; i < str.length(); i++) {
-            char target = str.charAt(i); // i번째 문자
-            int idx = str.indexOf(target); // 그 문자의 index를 구한다
-            if(i == idx) { // i와 index가 다르다면 이미 i보다 앞에 문자가 존재한다는 의미이므로(=중복) 추가하지 않는다.
-                sb.append(target);
+            if(str.indexOf(str.charAt(i))==i) {
+                answer+= str.charAt(i);
             }
         }
-        answer = sb.toString();
         return answer;
     }
     public static void main(String[] args) {
