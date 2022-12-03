@@ -11,9 +11,12 @@ public class TurnTheWorld {
     public ArrayList<String> solution(String[] words) {
         // 리스트를 출력하니, 뒤집은 값을 이 list에 저장한다.
         ArrayList<String> answer = new ArrayList<>();
-        for (int i = 0; i < words.length; i++) {
-            StringBuilder sb = new StringBuilder(words[i]); // words[i]를 stringBuilder의 객체로 생성
-            answer.add(sb.reverse().toString());
+        for (String x : words) {
+            // StringBuilder 도 String 객체에 포함된다. 상속관계?
+            // string : string끼리 더하거나 수정하면? 새로운 string객체가 생성된다.(string 불변의 특징)
+            // stringBuilder : 수정, 삭제, 크기 변경할 때 하나의 객체만을 가지고 이루어진다. (stringbuilder은 가변적이다)
+            String tmp = new StringBuilder(x).reverse().toString(); // reverse() 메소드
+            answer.add(tmp);
         }
         return answer;
     }
