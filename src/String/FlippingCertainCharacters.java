@@ -16,9 +16,9 @@ public class FlippingCertainCharacters {
         int lt = 0, rt = s.length-1;
 
         while(lt < rt){
-            if(((65>s[lt])||(90<s[lt])) && ((97>s[lt])||(122<s[lt]))){
+            if(!(Character.isAlphabetic(s[lt]))){
                 lt ++;
-            }else if(((65>s[rt])||(90<s[rt])) && ((97>s[rt])||(122<s[rt]))){
+            }else if(!(Character.isAlphabetic(s[rt]))){
                 rt --;
             }else {
                 char tmp = s[lt];
