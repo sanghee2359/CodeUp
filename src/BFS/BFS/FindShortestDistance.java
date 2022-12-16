@@ -26,7 +26,7 @@ public class FindShortestDistance {
 
                 for (int j = 0; j < dis.length; j++) {
                     int nx = x+dis[j];
-                    if(nx == e) return L; // q에 넣으려는 값이 e 인지 확인
+                    if(nx == e) return L+1; // nx는 n의 자식노드이므로 +1
                     if(nx >= 1 && nx <= 10000 && ch[nx]==0) { // 노드 범위 + 중복 조건 처리
                         ch[nx] = 1;
                         Q.offer(nx);
