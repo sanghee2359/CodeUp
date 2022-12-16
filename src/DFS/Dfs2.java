@@ -13,8 +13,8 @@ public class Dfs2 {
     public void DFS(Node root) {
         if(root == null) return; // root가 가장 말단노드 -> 종료
         else {
-            System.out.printf(root.data+" ");
             DFS(root.lt);
+            System.out.printf(root.data+" ");
             DFS(root.rt);
         }
     }
