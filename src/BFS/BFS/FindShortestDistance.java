@@ -24,13 +24,11 @@ public class FindShortestDistance {
             for (int i = 0; i < len; i++){
                 int x = Q.poll();
 
-                // e와 같은 값이 나오면 return
-                if(x == e) return L;
                 for (int j = 0; j < dis.length; j++) {
-//                    if()Q.offer(current+dis[j]);
                     int nx = x+dis[j];
+                    if(nx == e) return L; // q에 넣으려는 값이 e 인지 확인
                     if(nx >= 1 && nx <= 10000 && ch[nx]==0) { // 노드 범위 + 중복 조건 처리
-                        ch[nx] = 1; // 인덱스 번호
+                        ch[nx] = 1;
                         Q.offer(nx);
                     }
                 }
