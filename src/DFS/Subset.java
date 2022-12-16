@@ -7,10 +7,11 @@ public class Subset {
     static int[] ch; // 인덱스 번호를 집합의 원소로 지정
     public void DFS(int L) {
         if(L == n+1) {
+            String tmp = "";
             for(int i = 1; i<= n; i++){
-                if(ch[i]==1) System.out.printf("%d ", i);
+                if(ch[i]==1) tmp += (i+" ");
             }
-            System.out.println();
+            if(tmp.length() > 0) System.out.println(tmp); // 공집합 조건 추가
         }
         else {
             ch[L] = 1;
