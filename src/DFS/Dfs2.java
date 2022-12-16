@@ -14,8 +14,8 @@ public class Dfs2 {
         if(root == null) return; // root가 가장 말단노드 -> 종료
         else {
             DFS(root.lt);
-            System.out.printf(root.data+" ");
             DFS(root.rt);
+            System.out.printf(root.data+" ");
         }
     }
     public static void main(String[] args) {
